@@ -1,0 +1,105 @@
+{
+  "app": {
+    "title": "AgriConnect",
+    "tagline": "Your Partner in Modern Farming"
+  },
+  "nav": {
+    "home": "Home",
+    "news": "News",
+    "schemes": "Schemes",
+    "admin": "Admin",
+    "about": "About",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Empowering Farmers with Knowledge",
+    "subtitle": "Access latest agricultural news, government schemes, and expert advice in your language",
+    "cta": "Explore Now"
+  },
+  "news": {
+    "title": "Latest News",
+    "readMore": "Read More",
+    "filterByState": "Filter by State",
+    "allStates": "All States",
+    "noNews": "No news articles found"
+  },
+  "schemes": {
+    "title": "Government Schemes",
+    "benefits": "Benefits",
+    "eligibility": "Eligibility",
+    "apply": "Apply Now",
+    "filterByState": "Filter by State",
+    "allStates": "All States",
+    "noSchemes": "No schemes found",
+    "validUntil": "Valid Until"
+  },
+  "chat": {
+    "title": "AI Assistant",
+    "placeholder": "Ask me about farming, schemes, or weather...",
+    "send": "Send",
+    "listening": "Listening...",
+    "startVoice": "Start voice input",
+    "stopVoice": "Stop voice input"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "addNews": "Add News",
+    "addScheme": "Add Scheme",
+    "manageContent": "Manage Content",
+    "newsForm": {
+      "title": "Add/Edit News",
+      "titleField": "Title",
+      "summary": "Summary",
+      "content": "Content",
+      "category": "Category",
+      "state": "State",
+      "language": "Language",
+      "imageUrl": "Image URL",
+      "submit": "Save News"
+    },
+    "schemeForm": {
+      "title": "Add/Edit Scheme",
+      "titleField": "Title",
+      "description": "Description",
+      "benefits": "Benefits",
+      "eligibility": "Eligibility",
+      "category": "Category",
+      "state": "State",
+      "language": "Language",
+      "applicationLink": "Application Link",
+      "validUntil": "Valid Until",
+      "submit": "Save Scheme"
+    }
+  },
+  "about": {
+    "title": "About AgriConnect",
+    "mission": "Our Mission",
+    "missionText": "To empower farmers across India with timely information, government schemes, and modern farming practices through technology.",
+    "features": "Features",
+    "feature1": "Multilingual Support",
+    "feature1Text": "Content available in 6 Indian languages",
+    "feature2": "AI Chatbot",
+    "feature2Text": "Get instant answers with voice support",
+    "feature3": "Government Schemes",
+    "feature3Text": "Stay updated with latest subsidies",
+    "contact": "Contact Us",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "states": {
+    "maharashtra": "Maharashtra",
+    "punjab": "Punjab",
+    "haryana": "Haryana",
+    "karnataka": "Karnataka",
+    "tamilnadu": "Tamil Nadu",
+    "telangana": "Telangana",
+    "allIndia": "All India"
+  },
+  "categories": {
+    "farming": "Farming",
+    "weather": "Weather",
+    "technology": "Technology",
+    "financial": "Financial",
+    "agriculture": "Agriculture"
+  }
+}
