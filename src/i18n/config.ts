@@ -6,6 +6,12 @@ import ta from './locales/ta.json';
 import te from './locales/te.json';
 import kn from './locales/kn.json';
 import mr from './locales/mr.json';
+import bn from './locales/bn.json';
+import gu from './locales/gu.json';
+import ml from './locales/ml.json';
+import pa from './locales/pa.json';
+import od from './locales/od.json';
+import as from './locales/as.json';
 
 i18n
   .use(initReactI18next)
@@ -17,6 +23,12 @@ i18n
       te: { translation: te },
       kn: { translation: kn },
       mr: { translation: mr },
+      bn: { translation: bn },
+      gu: { translation: gu },
+      ml: { translation: ml },
+      pa: { translation: pa },
+      od: { translation: od },
+      as: { translation: as },
     },
     lng: 'en',
     fallbackLng: 'en',

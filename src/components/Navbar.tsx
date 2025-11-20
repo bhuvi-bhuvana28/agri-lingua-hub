@@ -40,10 +40,16 @@ export const Navbar = () => {
             <SelectContent>
               <SelectItem value="en">English</SelectItem>
               <SelectItem value="hi">हिंदी</SelectItem>
+              <SelectItem value="bn">বাংলা</SelectItem>
               <SelectItem value="ta">தமிழ்</SelectItem>
               <SelectItem value="te">తెలుగు</SelectItem>
-              <SelectItem value="kn">ಕನ್ನಡ</SelectItem>
               <SelectItem value="mr">मराठी</SelectItem>
+              <SelectItem value="kn">ಕನ್ನಡ</SelectItem>
+              <SelectItem value="gu">ગુજરાતી</SelectItem>
+              <SelectItem value="ml">മലയാളം</SelectItem>
+              <SelectItem value="pa">ਪੰਜਾਬੀ</SelectItem>
+              <SelectItem value="od">ଓଡ଼ିଆ</SelectItem>
+              <SelectItem value="as">অসমীয়া</SelectItem>
             </SelectContent>
           </Select>
         </div>

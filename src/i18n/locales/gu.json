@@ -1,0 +1,106 @@
+{
+  "app": {
+    "title": "એગ્રીકનેક્ટ",
+    "tagline": "આધુનિક ખેતીમાં તમારો સાથી"
+  },
+  "nav": {
+    "home": "હોમ",
+    "news": "સમાચાર",
+    "schemes": "યોજનાઓ",
+    "admin": "એડમિન",
+    "about": "અમારા વિશે",
+    "language": "ભાષા"
+  },
+  "hero": {
+    "title": "જ્ઞાન સાથે ખેડૂતોને સશક્ત બનાવવું",
+    "subtitle": "તમારી ભાષામાં નવીનતમ કૃષિ સમાચાર, સરકારી યોજનાઓ અને નિષ્ણાત સલાહ મેળવો",
+    "cta": "હવે અન્વેષણ કરો"
+  },
+  "news": {
+    "title": "તાજા સમાચાર",
+    "readMore": "વધુ વાંચો",
+    "filterByState": "રાજ્ય દ્વારા ફિલ્ટર કરો",
+    "allStates": "બધા રાજ્યો",
+    "noNews": "કોઈ સમાચાર લેખો મળ્યા નથી"
+  },
+  "schemes": {
+    "title": "સરકારી યોજનાઓ",
+    "benefits": "લાભો",
+    "eligibility": "લાયકાત",
+    "apply": "હવે અરજી કરો",
+    "filterByState": "રાજ્ય દ્વારા ફિલ્ટર કરો",
+    "allStates": "બધા રાજ્યો",
+    "noSchemes": "કોઈ યોજનાઓ મળી નથી",
+    "validUntil": "માન્ય સુધી"
+  },
+  "chat": {
+    "title": "AI સહાયક",
+    "placeholder": "મને ખેતી, યોજનાઓ અથવા હવામાન વિશે પૂછો...",
+    "send": "મોકલો",
+    "listening": "સાંભળી રહ્યા છે...",
+    "startVoice": "વોઇસ ઇનપુટ શરૂ કરો",
+    "stopVoice": "વોઇસ ઇનપુટ બંધ કરો"
+  },
+  "admin": {
+    "title": "એડમિન ડેશબોર્ડ",
+    "addNews": "સમાચાર ઉમેરો",
+    "addScheme": "યોજના ઉમેરો",
+    "manageContent": "સામગ્રી સંચાલિત કરો",
+    "newsForm": {
+      "title": "સમાચાર ઉમેરો/સંપાદિત કરો",
+      "titleField": "શીર્ષક",
+      "summary": "સારાંશ",
+      "content": "સામગ્રી",
+      "category": "શ્રેણી",
+      "state": "રાજ્ય",
+      "language": "ભાષા",
+      "imageUrl": "છબી URL",
+      "submit": "સમાચાર સાચવો"
+    },
+    "schemeForm": {
+      "title": "યોજના ઉમેરો/સંપાદિત કરો",
+      "titleField": "શીર્ષક",
+      "description": "વર્ણન",
+      "benefits": "લાભો",
+      "eligibility": "લાયકાત",
+      "category": "શ્રેણી",
+      "state": "રાજ્ય",
+      "language": "ભાષા",
+      "applicationLink": "અરજી લિંક",
+      "validUntil": "માન્ય સુધી",
+      "submit": "યોજના સાચવો"
+    }
+  },
+  "about": {
+    "title": "એગ્રીકનેક્ટ વિશે",
+    "mission": "અમારું મિશન",
+    "missionText": "ટેકનોલોજી દ્વારા સમગ્ર ભારતમાં ખેડૂતોને સમયસર માહિતી, સરકારી યોજનાઓ અને આધુનિક ખેતી પદ્ધતિઓથી સશક્ત બનાવવું.",
+    "features": "વિશેષતાઓ",
+    "feature1": "બહુભાષી સપોર્ટ",
+    "feature1Text": "6 ભારતીય ભાષાઓમાં સામગ્રી ઉપલબ્ધ",
+    "feature2": "AI ચેટબોટ",
+    "feature2Text": "વોઇસ સપોર્ટ સાથે તાત્કાલિક જવાબો મેળવો",
+    "feature3": "સરકારી યોજનાઓ",
+    "feature3Text": "નવીનતમ સબસિડી સાથે અપડેટ રહો",
+    "contact": "અમારો સંપર્ક કરો",
+    "email": "ઇમેઇલ",
+    "phone": "ફોન"
+  },
+  "states": {
+    "maharashtra": "મહારાષ્ટ્ર",
+    "punjab": "પંજાબ",
+    "haryana": "હરિયાણા",
+    "karnataka": "કર્ણાટક",
+    "tamilnadu": "તમિલનાડુ",
+    "telangana": "તેલંગાણા",
+    "gujarat": "ગુજરાત",
+    "allIndia": "બધા ભારત"
+  },
+  "categories": {
+    "farming": "ખેતી",
+    "weather": "હવામાન",
+    "technology": "ટેકનોલોજી",
+    "financial": "નાણાકીય",
+    "agriculture": "કૃષિ"
+  }
+}
