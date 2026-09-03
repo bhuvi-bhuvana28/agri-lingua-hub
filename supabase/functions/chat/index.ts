@@ -14,9 +14,9 @@ serve(async (req) => {
   try {
     const { messages, language = "en" } = await req.json();
 
-    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+    const geminiApiKey = Deno.env.get("GEMINI_API_KEY");
 
-    if (!GEMINI_API_KEY) {
+    if (!geminiApiKey) {
       throw new Error("GEMINI_API_KEY is not configured");
     }
 
@@ -54,11 +54,11 @@ If the user asks in Hindi, Tamil, Telugu, Kannada, or Marathi, respond in that l
       {
         method: "POST",
         headers: {
-          "x-goog-api-key": GEMINI_API_KEY,
+          "x-goog-api-key": geminiApiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          system_instruction: {
+          systemInstruction: {
             parts: [
               {
                 text: systemPrompt,

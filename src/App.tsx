@@ -22,7 +22,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/agri-lingua-hub">
           <ChatWidget />
           <Routes>
           <Route path="/" element={<Index />} />
