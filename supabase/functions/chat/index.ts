@@ -1,24 +1,27 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
 };
 
 serve(async (req) => {
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { messages, language = 'en' } = await req.json();
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
-    
-    if (!LOVABLE_API_KEY) {
-      throw new Error('LOVABLE_API_KEY is not configured');
+    const { messages, language = "en" } = await req.json();
+
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
+
+    if (!GEMINI_API_KEY) {
+      throw new Error("GEMINI_API_KEY is not configured");
     }
 
-    const systemPrompt = `You are a helpful agricultural assistant chatbot for Indian farmers. 
+    const systemPrompt = `You are a helpful agricultural assistant chatbot for Indian farmers.
+
 You provide information about:
 - Farming techniques and best practices
 - Government schemes and subsidies for farmers
@@ -26,61 +29,100 @@ You provide information about:
 - Market prices and agricultural news
 - Pest control and crop diseases
 
-Keep responses concise, practical, and farmer-friendly. 
-Current language context: ${language}
-If the user asks in Hindi, Tamil, Telugu, Kannada, or Marathi, try to respond in a simple, friendly manner that can be understood by farmers.`;
+Keep responses concise, practical, and farmer-friendly.
 
-    const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          ...messages
+Current language context: ${language}
+
+If the user asks in Hindi, Tamil, Telugu, Kannada, or Marathi, respond in that language using simple, friendly language that farmers can understand.`;
+
+    const contents = (messages || [])
+      .filter((msg: any) => msg.role !== "system")
+      .map((msg: any) => ({
+        role: msg.role === "assistant" ? "model" : "user",
+        parts: [
+          {
+            text:
+              typeof msg.content === "string"
+                ? msg.content
+                : String(msg.content ?? ""),
+          },
         ],
-        stream: false,
-      }),
-    });
+      }));
+
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent",
+      {
+        method: "POST",
+        headers: {
+          "x-goog-api-key": GEMINI_API_KEY,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          system_instruction: {
+            parts: [
+              {
+                text: systemPrompt,
+              },
+            ],
+          },
+          contents,
+        }),
+      }
+    );
 
     if (!response.ok) {
-      if (response.status === 429) {
-        return new Response(
-          JSON.stringify({ error: 'Rate limit exceeded. Please try again later.' }),
-          { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-      if (response.status === 402) {
-        return new Response(
-          JSON.stringify({ error: 'Payment required. Please add credits to your workspace.' }),
-          { status: 402, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-      
       const errorText = await response.text();
-      console.error('AI Gateway error:', response.status, errorText);
-      throw new Error('AI Gateway error');
+
+      console.error("Gemini API error:", response.status, errorText);
+
+      return new Response(
+        JSON.stringify({
+          error: "Unable to get a response from Gemini.",
+        }),
+        {
+          status: response.status,
+          headers: {
+            ...corsHeaders,
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
 
     const data = await response.json();
-    const aiMessage = data.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
+
+    const aiMessage =
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Sorry, I could not generate a response.";
 
     return new Response(
-      JSON.stringify({ message: aiMessage }),
-      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      JSON.stringify({
+        message: aiMessage,
+      }),
+      {
+        status: 200,
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+      }
     );
-
   } catch (error) {
-    console.error('Error in chat function:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Internal server error';
+    console.error("Error in chat function:", error);
+
     return new Response(
-      JSON.stringify({ error: errorMessage }),
-      { 
+      JSON.stringify({
+        error:
+          error instanceof Error
+            ? error.message
+            : "Internal server error",
+      }),
+      {
         status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        headers: {
+          ...corsHeaders,
+          "Content-Type": "application/json",
+        },
       }
     );
   }
